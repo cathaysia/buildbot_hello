@@ -10,11 +10,10 @@ RUN apt-get update -y \
     && apt-get autoremove \
     && apt-get clean
 
-RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
-    && pip install --no-cache-dir 'buildbot[bundle]' \
-    buildbot-www-react buildbot-react-grid-view buildbot-react-waterfall-view buildbot-react-console-view \
-    psycopg2
+COPY requirements.txt /opt/requirements.txt
 
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
+    && pip install --no-cache-dir -r /opt/requirements.txt
 
 ENV USER_NAME build_master
 ENV DATA_DIR /data

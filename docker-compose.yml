@@ -25,7 +25,7 @@ services:
       - buildbot
 
   db:
-    image: "postgres:16"
+    image: postgres:16
     env_file:
       - db.env
     environment:
@@ -35,5 +35,16 @@ services:
     expose:
       - 5432
 
+  ftp:
+    image: drakkan/sftpgo:v2.5.6
+    userns_mode: keep-id
+    volumes:
+      - ./data:/srv/sftpgo
+      - FTP_CONF:/var/lib/sftpgo
+    ports:
+      - 8020:8080
+
+
 volumes:
   PG_DATA: {}
+  FTP_CONF: {}
