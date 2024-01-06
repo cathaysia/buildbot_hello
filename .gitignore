@@ -3,3 +3,5 @@
 **/**.sample
 **/runtests/build
 **/twistd.hostname
+**/__pycache__
+master/worker_fedora
