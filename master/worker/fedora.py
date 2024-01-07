@@ -12,7 +12,7 @@ WORKER_INFO = worker.Worker("worker_fedora", "pass")
 def get_worker():
     factory: BuildFactory = util.BuildFactory()
     # check out the source
-    factory.addStep(steps.ShellCommand(command=["echo", util.Secret("tea|data")]))
+    factory.addStep(steps.ShellCommand(command=["echo", util.Secret("aaa.txt")]))
     factory.addStep(
         steps.Git(
             repourl="https://github.com/buildbot/hello-world.git",

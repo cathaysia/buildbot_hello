@@ -9,6 +9,7 @@ services:
       - db
     volumes:
       - ./master:/data/buildbot
+      - ./secret:/data/secret
     ports:
       - 8010:8010
 
@@ -44,18 +45,6 @@ services:
     ports:
       - 8020:8080
 
-  vault:
-    image: hashicorp/vault:latest
-    cap_add:
-      - IPC_LOCK
-    ports:
-      - 8200:8200
-    command: ["vault", "server", "-config=/vault/config.d/"]
-    volumes:
-      - VAULT_DATA:/vault/file
-      - ./vault:/vault/config.d
-
 volumes:
   PG_DATA: {}
   FTP_CONF: {}
-  VAULT_DATA: {}

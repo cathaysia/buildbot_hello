@@ -1,5 +1,6 @@
 .venv
 **/http.log
+**/http.log.*
 **/**.sample
 **/runtests/build
 **/twistd.hostname
