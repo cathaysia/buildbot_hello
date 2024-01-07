@@ -5,6 +5,7 @@ buildbot-react-waterfall-view
 buildbot-www-react
 # buildbot
 buildbot[bundle]
+hvac
 psycopg2
 pydantic >= 1.10.5, < 2
 # sftpgo
